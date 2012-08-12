@@ -8,6 +8,9 @@ To run this task you need to create a Flickr API Key [here](http://www.flickr.co
 Run
 ---
 
+    git clone git@github.com:alexandrz/lj_rnd_photo.git
+    cd lj_rnd_photo
+    bundle install
     rake lj_rnd_photo FLICKR_API_KEY=... FLICKR_SECRET=... TAG=... LJ_LOGIN=... LJ_PASSWORD=... LJ_JOURNAL=...
 
 Depoly on heroku

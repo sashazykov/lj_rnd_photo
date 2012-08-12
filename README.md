@@ -1,7 +1,9 @@
 lj_rnd_photo
-============
+------------
 
-Rake task which publishes random photo tagged with some tag to LiveJournal
+Rake task which publishes random Flickr photo tagged with some tag to LiveJournal.
+
+To run this task you need to create a Flickr API Key [here](http://www.flickr.com/services/apps/create/apply/).
 
 Run
 ---

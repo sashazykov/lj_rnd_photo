@@ -1,9 +1,9 @@
 lj_rnd_photo
 ------------
 
-Rake task publishing random Flickr photo tagged with some tag to LiveJournal.
+Publishes random [Flickr](http://www.flickr.com/) photo tagged with some tag to [LiveJournal](http://www.livejournal.com/).
 
-To run this task you need to create a Flickr API Key [here](http://www.flickr.com/services/apps/create/apply/).
+To run this task you need to create a **Flickr API Key** [here](http://www.flickr.com/services/apps/create/apply/).
 
 Run
 ---
@@ -13,8 +13,8 @@ Run
     bundle install
     rake lj_rnd_photo FLICKR_API_KEY=... FLICKR_SECRET=... TAG=... LJ_LOGIN=... LJ_PASSWORD=... LJ_JOURNAL=...
 
-Depoly on heroku
-----------------
+Depoly on [heroku](heroku.com)
+------------------------------
 
     heroku create
     heroku config:add FLICKR_API_KEY=... FLICKR_SECRET=... TAG=... LJ_LOGIN=... LJ_PASSWORD=... LJ_JOURNAL=...

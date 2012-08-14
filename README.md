@@ -14,7 +14,7 @@ Run
     rake lj_rnd_photo FLICKR_API_KEY=... FLICKR_SECRET=... TAG=... LJ_LOGIN=... LJ_PASSWORD=... LJ_JOURNAL=...
 
 Depoly on [heroku](http://www.heroku.com/)
-------------------------------
+------------------------------------------
 
     heroku create
     heroku config:add FLICKR_API_KEY=... FLICKR_SECRET=... TAG=... LJ_LOGIN=... LJ_PASSWORD=... LJ_JOURNAL=...

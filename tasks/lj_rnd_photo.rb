@@ -12,7 +12,12 @@ task :lj_rnd_photo do
 
   user = LiveJournal::User.new(ENV['LJ_LOGIN'], ENV['LJ_PASSWORD'])
   login = LiveJournal::Request::Login.new(user)
-  login.run
+  
+  begin
+    login.run
+  rescue
+    retry
+  end
 
   user.usejournal = ENV['LJ_JOURNAL']
 

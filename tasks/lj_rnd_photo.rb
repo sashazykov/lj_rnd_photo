@@ -12,14 +12,14 @@ task :lj_rnd_photo do
   FlickRaw.api_key=ENV['FLICKR_API_KEY']
   FlickRaw.shared_secret=ENV['FLICKR_SECRET']
 
-  retryable do
-    photo = flickr.photos.search(:tags => ENV['TAG'], :per_page => 1, :page => rand(4001)+1)[0]
+  photo = retryable do
+    flickr.photos.search(:tags => ENV['TAG'], :per_page => 1, :page => rand(4001)+1)[0]
   end
 
+  user = LiveJournal::User.new(ENV['LJ_LOGIN'], ENV['LJ_PASSWORD'])
+
   retryable do
-    user = LiveJournal::User.new(ENV['LJ_LOGIN'], ENV['LJ_PASSWORD'])
-    login = LiveJournal::Request::Login.new(user)
-    login.run
+    LiveJournal::Request::Login.new(user).run
   end
 
   user.usejournal = ENV['LJ_JOURNAL']
@@ -29,8 +29,7 @@ task :lj_rnd_photo do
   entry.event = "<img src='#{FlickRaw.url_b(photo)}' width='100%'>"
 
   retryable do
-    request = LiveJournal::Request::PostEvent.new user, entry
-    request.run
+    LiveJournal::Request::PostEvent.new(user, entry).run
   end
 
 end

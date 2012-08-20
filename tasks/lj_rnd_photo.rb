@@ -1,3 +1,17 @@
+require 'net/http'
+
+# Lengthen timeout in Net::HTTP
+module Net
+    class HTTP
+        alias old_initialize initialize
+
+        def initialize(*args)
+            old_initialize(*args)
+            @read_timeout = 5*60 # 5 minutes
+        end
+    end
+end
+
 desc "Posts random photo tagged with TAG to LJ_JOURNAL (using LJ_LOGIN, LJ_PASSWORD, FLICKR_API_KEY and FLICKR_SECRET)"
 task :lj_rnd_photo do
 
@@ -5,7 +19,7 @@ task :lj_rnd_photo do
     begin
       return yield
     rescue
-      sleep 2
+      sleep 5
       retry
     end
   end

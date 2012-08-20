@@ -29,6 +29,4 @@ Run:
     heroku addons:add scheduler:standard
     heroku addons:open scheduler
 
-Add job:
-
-    rake lj_rnd_photo 
+Add job ``rake lj_rnd_photo``

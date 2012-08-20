@@ -18,7 +18,7 @@ task :lj_rnd_photo do
   FlickRaw.api_key=ENV['FLICKR_API_KEY']
   FlickRaw.shared_secret=ENV['FLICKR_SECRET']
 
-  flickr.photos.search(:tags => ENV['TAG'], :per_page => 1, :page => rand(4001)+1)[0]
+  photo = flickr.photos.search(:tags => ENV['TAG'], :per_page => 1, :page => rand(4001)+1)[0]
 
   user = LiveJournal::User.new(ENV['LJ_LOGIN'], ENV['LJ_PASSWORD'])
 

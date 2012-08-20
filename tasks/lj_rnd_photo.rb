@@ -5,6 +5,7 @@ task :lj_rnd_photo do
     begin
       return yield
     rescue
+      sleep 2
       retry
     end
   end
